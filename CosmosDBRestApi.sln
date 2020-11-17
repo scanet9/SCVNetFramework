@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosDBRestApi", "CosmosDBRestApi\CosmosDBRestApi.csproj", "{29166B6D-D61D-4F83-8494-B8F17DF3DBDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosDBRestApi.Api", "CosmosDBRestApi.Api\CosmosDBRestApi.Api.csproj", "{29166B6D-D61D-4F83-8494-B8F17DF3DBDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosDBRestApi.DataLayer", "CosmosDBRestApi.DataLayer\CosmosDBRestApi.DataLayer.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosDBRestApi.BusinessLogic", "CosmosDBRestApi.BusinessLogic\CosmosDBRestApi.BusinessLogic.csproj", "{A925AA19-0F48-4D68-ACA4-FC49F21C270B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{29166B6D-D61D-4F83-8494-B8F17DF3DBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29166B6D-D61D-4F83-8494-B8F17DF3DBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29166B6D-D61D-4F83-8494-B8F17DF3DBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A925AA19-0F48-4D68-ACA4-FC49F21C270B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A925AA19-0F48-4D68-ACA4-FC49F21C270B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A925AA19-0F48-4D68-ACA4-FC49F21C270B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A925AA19-0F48-4D68-ACA4-FC49F21C270B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
