@@ -2,17 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CosmosDBRestApi.DataLayer;
+using CosmosDBRestApi.DataLayer.Infrastructure;
+using CosmosDBRestApi.DataLayer.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace CosmosDBRestApi
+namespace CosmosDBRestApi.Api
 {
     public class Startup
     {
@@ -26,8 +30,16 @@ namespace CosmosDBRestApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<CosmosDBRestApiContext>(opt =>
+            {
+                opt.UseCosmos(Configuration.GetSection("CosmosDB").GetValue<string>("PrimaryConnectionString"), Configuration.GetSection("CosmosDB").GetValue<string>("DatabaseName"));
+            });
+
+            services.AddScoped<DbContext, CosmosDBRestApiContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CosmosDBRestApi", Version = "v1" });

@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using CosmosDBRestApi.DataLayer.Infrastructure;
 
 namespace CosmosDBRestApi.DataLayer.Models
 {
-    public class User
+    public class User : BaseEntity
     {
-        public string Guid { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
