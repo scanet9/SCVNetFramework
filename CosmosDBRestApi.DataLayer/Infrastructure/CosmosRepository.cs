@@ -16,7 +16,6 @@ namespace CosmosDBRestApi.DataLayer.Infrastructure
         public CosmosRepository(DbContext context)
         {
             _context = context;
-            _context.Database.EnsureCreated();
         }
 
         public async Task<T> CreateAsync(T entity)

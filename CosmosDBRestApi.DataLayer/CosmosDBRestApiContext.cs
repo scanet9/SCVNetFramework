@@ -8,7 +8,6 @@ namespace CosmosDBRestApi.DataLayer
     {
         public CosmosDBRestApiContext(DbContextOptions options) : base(options)
         {
-
         }
 
         public virtual DbSet<User> Users { get; set; }
