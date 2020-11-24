@@ -8,8 +8,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Cosmos" Version="5.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="DocumentModels\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Infrastructure\Interfaces\" />
+    <Folder Include="DataTransferObjects\" />
+    <Folder Include="DocumentModels\User\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 ﻿using System;
-using CosmosDBRestApi.DataLayer.Models;
+using CosmosDBRestApi.DataLayer.DocumentModels.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace CosmosDBRestApi.DataLayer

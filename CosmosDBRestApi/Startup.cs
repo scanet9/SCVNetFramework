@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CosmosDBRestApi.BusinessLogic.Services;
+using CosmosDBRestApi.BusinessLogic.Services.Interfaces;
 using CosmosDBRestApi.DataLayer;
 using CosmosDBRestApi.DataLayer.Infrastructure;
 using CosmosDBRestApi.DataLayer.Infrastructure.Interfaces;
@@ -37,6 +39,7 @@ namespace CosmosDBRestApi.Api
 
             services.AddScoped<DbContext, CosmosDBRestApiContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUserService, UserService>();
 
             services.AddControllers();
 

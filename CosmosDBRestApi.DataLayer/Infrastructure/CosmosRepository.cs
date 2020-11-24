@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Threading.Tasks;
 using CosmosDBRestApi.DataLayer.Infrastructure.Interfaces;
@@ -21,45 +22,36 @@ namespace CosmosDBRestApi.DataLayer.Infrastructure
         public async Task<T> CreateAsync(T entity)
         {
             entity.Id = Guid.NewGuid();
-            var response = await _context.AddAsync(entity);
+            var response = await _context.Set<T>().AddAsync(entity);
             return response.Entity;
         }
 
-        //public async Task UpdateItemAsync(string guid, T item)
-        //{
-        //    await this._container.UpsertItemAsync<T>(item, new PartitionKey(guid));
-        //}
+        public async Task<IEnumerable<T>> GetAllAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
+        }
 
-        //public async Task DeleteItemAsync(string guid)
-        //{
-        //    await this._container.DeleteItemAsync<T>(guid, new PartitionKey(guid));
-        //}
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression)
+        {
+            return await _context.Set<T>().Where(expression).ToListAsync();
+        }
 
-        //public async Task<T> GetItemAsync(string guid)
-        //{
-        //    try
-        //    {
-        //        ItemResponse<T> response = await this._container.ReadItemAsync<T>(guid, new PartitionKey(guid));
-        //        return response.Resource;
-        //    }
-        //    catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
-        //    {
-        //        return default(T);
-        //    }
-        //}
+        public async Task<T> GetByIdAsync(Guid id)
+        {
+            return await _context.Set<T>().SingleOrDefaultAsync(x => x.Id == id);
+        }
 
-        //public async Task<IEnumerable<T>> GetItemsAsync(string queryString)
-        //{
-        //    var query = this._container.GetItemQueryIterator<T>(new QueryDefinition(queryString));
-        //    List<T> results = new List<T>();
-        //    while (query.HasMoreResults)
-        //    {
-        //        var response = await query.ReadNextAsync();
+        public T Update(T entity)
+        {
+            var response = _context.Set<T>().Update(entity);
+            return response.Entity;
+        }
 
-        //        results.AddRange(response.ToList());
-        //    }
-
-        //    return results;
-        //}
+        public async Task<T> DeleteAsync(Guid id)
+        {
+            var entity = await _context.Set<T>().SingleOrDefaultAsync(x => x.Id == id);
+            var response = _context.Set<T>().Remove(entity);
+            return response.Entity;
+        }
     }
 }
