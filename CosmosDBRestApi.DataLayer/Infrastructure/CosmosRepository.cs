@@ -26,19 +26,19 @@ namespace CosmosDBRestApi.DataLayer.Infrastructure
             return response.Entity;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync(string partitionKey = "")
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>().WithPartitionKey(partitionKey).ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression, string partitionKey = "")
         {
-            return await _context.Set<T>().Where(expression).ToListAsync();
+            return await _context.Set<T>().WithPartitionKey(partitionKey).Where(expression).ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id, string partitionKey = "")
         {
-            return await _context.Set<T>().SingleOrDefaultAsync(x => x.Id == id);
+            return await _context.Set<T>().WithPartitionKey(partitionKey).SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public T Update(T entity)

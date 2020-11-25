@@ -16,7 +16,9 @@ namespace CosmosDBRestApi.DataLayer
         {
             modelBuilder.Entity<User>()
                 .ToContainer("Users")
-                .HasPartitionKey(x => x.Email);
+                .HasPartitionKey(x => x.Email)
+                .HasNoDiscriminator()
+                .Property(x => x.Id).HasConversion<string>().ToJsonProperty("id");
         }
     }
 }
