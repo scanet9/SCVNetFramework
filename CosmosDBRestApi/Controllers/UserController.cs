@@ -1,38 +1,63 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CosmosDBRestApi.BusinessLogic.Services.Interfaces;
-using CosmosDBRestApi.DataLayer.DocumentModels.User;
+using CosmosDBRestApi.DataLayer.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace CosmosDBRestApi.Api.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("Api/[controller]")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IConfiguration _configuration;
         private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserService userService, ILogger<UserController> logger)
+        public UserController(IUserService userService, IConfiguration configuration, ILogger<UserController> logger)
         {
             _userService = userService;
+            _configuration = configuration;
             _logger = logger;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUserProvaAsync([FromBody] User user)
+        [AllowAnonymous]
+        [HttpPost("Login")]
+        public async Task<IActionResult> LoginAsync([FromBody] AuthenticationRequestDto credentials)
         {
-            var result = await _userService.CreateUserProvaAsync(user);
-            return Ok(result);
+            var jwtSecret = _configuration.GetSection("AppSettings").GetValue<string>("JwtSecret");
+            var response = await _userService.AuthenticateAsync(credentials, jwtSecret);
+
+            if (String.IsNullOrEmpty(response.JwtToken))
+                return BadRequest(new { message = "Username or password incorrect" });
+
+            return Ok(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserDto registerUserDto)
+        {
+            try
+            {
+                var response = await _userService.RegisterAsync(registerUserDto);
+                return Ok(response);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllAsync() => Ok(await _userService.GetAllAsync());
 
-        [HttpGet("actives")]
+        [HttpGet("Actives")]
         public async Task<IActionResult> GetActiveUsers() => Ok(await _userService.GetActiveUsers());
 
         [HttpGet("{id}")]
@@ -47,16 +72,24 @@ namespace CosmosDBRestApi.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUserProvaAsync(Guid id, [FromBody] User user)
+        public async Task<IActionResult> UpdateUserAsync(Guid id, [FromBody] UpdateUserDto updateUserDto)
         {
-            var result = await _userService.UpdateUserProvaAsync(user);
-            return Ok(result);
+            try
+            {
+                var result = await _userService.UpdateUserAsync(id, updateUserDto);
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUserProvaAsync(Guid id)
+        public async Task<IActionResult> DeleteUserAsync(Guid id)
         {
-            var result = await _userService.DeleteUserProvaAsync(id);
+            var result = await _userService.DeleteUserAsync(id);
             return Ok(result);
         }
     }
