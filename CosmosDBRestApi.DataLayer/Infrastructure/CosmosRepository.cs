@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CosmosDBRestApi.DataLayer.Infrastructure
 {
-    public class CosmosRepository<T> : ICosmosRepository<T> where T : BaseEntity
+    public class CosmosRepository<T> : ICosmosRepository<T> where T : BaseDocument
     {
         private readonly DbContext _context;
 

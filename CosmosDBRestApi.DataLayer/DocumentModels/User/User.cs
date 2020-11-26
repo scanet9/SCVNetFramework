@@ -3,7 +3,7 @@ using CosmosDBRestApi.DataLayer.Infrastructure;
 
 namespace CosmosDBRestApi.DataLayer.DocumentModels.User
 {
-    public class User : BaseEntity
+    public class User : BaseDocument
     {
         public string Email { get; set; }
         public string Password { get; set; }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CosmosDBRestApi.DataLayer.Infrastructure.Interfaces
 {
-    public interface ICosmosRepository<T> where T: BaseEntity
+    public interface ICosmosRepository<T> where T: BaseDocument
     {
         Task<T> CreateAsync(T item);
         Task<IEnumerable<T>> GetAllAsync(string partitionKey = "");

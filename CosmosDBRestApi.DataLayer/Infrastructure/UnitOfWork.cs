@@ -16,7 +16,7 @@ namespace CosmosDBRestApi.DataLayer.Infrastructure
             _context = context;
         }
 
-        public ICosmosRepository<T> GetRepository<T>() where T : BaseEntity
+        public ICosmosRepository<T> GetRepository<T>() where T : BaseDocument
         {
             return (ICosmosRepository<T>)GetOrAddRepository(typeof(T), new CosmosRepository<T>(_context));
         }

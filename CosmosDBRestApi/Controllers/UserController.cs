@@ -2,11 +2,13 @@
 using System.Threading.Tasks;
 using CosmosDBRestApi.BusinessLogic.Services.Interfaces;
 using CosmosDBRestApi.DataLayer.DocumentModels.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace CosmosDBRestApi.Api.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UserController : ControllerBase

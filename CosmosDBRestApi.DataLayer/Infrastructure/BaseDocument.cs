@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace CosmosDBRestApi.DataLayer.Infrastructure
 {
-    public abstract class BaseEntity
+    public abstract class BaseDocument
     {
         [Key]
         public Guid Id { get; set; }
