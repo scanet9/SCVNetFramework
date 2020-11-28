@@ -44,4 +44,4 @@ steps:
   displayName: 'nuget push'
   inputs:
     command: push
-    publishVstsFeed: 'SCVFeed'
+    publishVstsFeed: 'SCV/SCVFeed'
