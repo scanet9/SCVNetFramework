@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -28,21 +28,24 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet buid'
+  displayName: 'dotnet build'
   inputs:
     command: 'build'
     projects: '$(solution)'
-    configuration: '$(buildConfiguration)'
+    arguments: '--configuration $(buildConfiguration)'
 
-- task: NuGetCommand@2
-  displayName: 'nuget pack'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
   inputs:
     command: 'pack'
     packagesToPack: 'Framework/**/*.csproj'
-    includeSymbols: true
+    configuration: '$(buildConfiguration)'
+    includesymbols: true
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
   inputs:
-    command: push
+    command: 'push'
     publishVstsFeed: 'SCV/SCVFeed'
+
+
