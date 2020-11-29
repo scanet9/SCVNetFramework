@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.808.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCVFramework.DataLayer.Cosmos", "Framework\SCVCosmosFramework.DataLayer\SCVFramework.DataLayer.Cosmos.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{8EE4ACE6-293C-42F7-ABD6-282D291138B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DemoCosmos", "DemoCosmos", "{9F29B6FE-F71A-4D44-85AA-2A54E170F2A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosApiBase", "DemoCosmos\CosmosApiBase\CosmosApiBase.csproj", "{6D2B8224-8C39-45E5-A296-B7A74558EB12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosApiBase.BusinessLogic", "DemoCosmos\CosmosApiBase.BusinessLogic\CosmosApiBase.BusinessLogic.csproj", "{98ACE784-8EB9-4668-B019-EBC1203D6188}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosApiBase.DataLayer", "DemoCosmos\CosmosApiBase.DataLayer\CosmosApiBase.DataLayer.csproj", "{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D2B8224-8C39-45E5-A296-B7A74558EB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D2B8224-8C39-45E5-A296-B7A74558EB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D2B8224-8C39-45E5-A296-B7A74558EB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D2B8224-8C39-45E5-A296-B7A74558EB12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98ACE784-8EB9-4668-B019-EBC1203D6188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98ACE784-8EB9-4668-B019-EBC1203D6188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98ACE784-8EB9-4668-B019-EBC1203D6188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98ACE784-8EB9-4668-B019-EBC1203D6188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCC36491-72BF-48A9-8D1D-8BC30D0A7AB9}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99BAA9D0-B51E-40E6-BC0B-6987A88042CE} = {8EE4ACE6-293C-42F7-ABD6-282D291138B0}
+		{6D2B8224-8C39-45E5-A296-B7A74558EB12} = {9F29B6FE-F71A-4D44-85AA-2A54E170F2A6}
+		{98ACE784-8EB9-4668-B019-EBC1203D6188} = {9F29B6FE-F71A-4D44-85AA-2A54E170F2A6}
+		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F} = {9F29B6FE-F71A-4D44-85AA-2A54E170F2A6}
+	EndGlobalSection
+EndGlobal
