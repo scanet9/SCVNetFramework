@@ -32,7 +32,7 @@ steps:
   displayName: 'dotnet buid'
   inputs:
     command: 'build'
-    projects: ''$(solution)'
+    projects: '$(solution)'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
