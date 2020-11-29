@@ -28,19 +28,19 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
   inputs:
     command: 'build'
     projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration)'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/$(Build.BuildNumber)'
 
-- task: NuGetCommand@2
-  displayName: 'nuget pack'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
   inputs:
     command: 'pack'
     packagesToPack: 'Framework/**/*.csproj'
-    includeSymbols: true
     configuration: '$(buildConfiguration)'
+    includesymbols: true
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
