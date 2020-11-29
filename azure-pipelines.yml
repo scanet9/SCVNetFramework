@@ -32,13 +32,13 @@ steps:
   displayName: 'dotnet buid'
   inputs:
     command: 'build'
-    projects: ''$(solution)'
+    projects: '$(solution)'
 
 - task: DotNetCoreCLI@2
   displayName: "dotnet pack"
   inputs:
     command: 'pack'
-    packagesToPack: 'Framework/*.csproj'
+    packagesToPack: 'Framework/**/*.csproj'
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
