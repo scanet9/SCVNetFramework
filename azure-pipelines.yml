@@ -11,7 +11,6 @@ pool:
 
 variables:
   solution: '*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
@@ -33,12 +32,14 @@ steps:
   inputs:
     command: 'build'
     projects: '$(solution)'
+    configuration: '$(buildConfiguration)'
 
-- task: DotNetCoreCLI@2
-  displayName: "dotnet pack"
+- task: NuGetCommand@2
+  displayName: 'nuget pack'
   inputs:
     command: 'pack'
     packagesToPack: 'Framework/**/*.csproj'
+    includeSymbols: true
 
 - task: NuGetCommand@2
   displayName: 'nuget push'

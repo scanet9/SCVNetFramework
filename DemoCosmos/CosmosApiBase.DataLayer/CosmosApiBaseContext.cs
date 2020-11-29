@@ -15,7 +15,7 @@ namespace CosmosApiBase.DataLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .ToContainer("Users")
+                .ToContainer("CosmosApiBase-Users")
                 .HasPartitionKey(x => x.Email)
                 .HasNoDiscriminator()
                 .Property(x => x.Id).HasConversion<string>().ToJsonProperty("id");

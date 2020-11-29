@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ReleaseVersion>1.0.1</ReleaseVersion>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +10,6 @@
     <Folder Include="DocumentModels\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\SCVCosmosFramework.DataLayer\SCVFramework.DataLayer.Cosmos.csproj" />
+    <ProjectReference Include="..\..\Framework\SCVFramework.DataLayer.Cosmos\SCVFramework.DataLayer.Cosmos.csproj" />
   </ItemGroup>
 </Project>

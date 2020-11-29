@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCVFramework.DataLayer.Cosmos", "Framework\SCVCosmosFramework.DataLayer\SCVFramework.DataLayer.Cosmos.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCVFramework.DataLayer.Cosmos", "Framework\SCVFramework.DataLayer.Cosmos\SCVFramework.DataLayer.Cosmos.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{8EE4ACE6-293C-42F7-ABD6-282D291138B0}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosApiBase.BusinessLogic", "DemoCosmos\CosmosApiBase.BusinessLogic\CosmosApiBase.BusinessLogic.csproj", "{98ACE784-8EB9-4668-B019-EBC1203D6188}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CosmosApiBase.DataLayer", "DemoCosmos\CosmosApiBase.DataLayer\CosmosApiBase.DataLayer.csproj", "{FCBBE4DB-7F5A-4932-B038-DFB7594C945F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4AC132A8-29A4-40D8-B4D8-7B584B5E2FEA}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.build.props = Directory.build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +56,6 @@ Global
 		{FCBBE4DB-7F5A-4932-B038-DFB7594C945F} = {9F29B6FE-F71A-4D44-85AA-2A54E170F2A6}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		version = 1.0.1
+		version = 1.0.0
 	EndGlobalSection
 EndGlobal
