@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <ReleaseVersion>1.0.7</ReleaseVersion>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
+    <ReleaseVersion>1.0.0</ReleaseVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
