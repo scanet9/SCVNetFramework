@@ -34,11 +34,11 @@ steps:
     command: 'build'
     projects: '$(solution)'
 
-- task: DotNetCoreCLI@2
-  displayName: "dotnet pack"
+- task: NuGetCommand@2
   inputs:
     command: 'pack'
     packagesToPack: 'Framework/**/*.csproj'
+    includeSymbols: true
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
