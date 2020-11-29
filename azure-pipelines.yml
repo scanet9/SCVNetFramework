@@ -28,11 +28,11 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet buid'
   inputs:
     command: 'build'
     projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration)'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/$(Build.BuildNumber)'
 
 - task: NuGetCommand@2
   displayName: 'nuget pack'
@@ -48,8 +48,4 @@ steps:
     command: 'push'
     publishVstsFeed: 'SCV/SCVFeed'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet buid'
-  inputs:
-    command: 'build'
-    projects: '*.sln'
+
