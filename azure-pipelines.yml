@@ -32,7 +32,7 @@ steps:
   inputs:
     command: 'build'
     projects: '$(solution)'
-    configuration: '$(buildConfiguration)'
+    arguments: '--configuration ${buildConfiguration}}'
 
 - task: NuGetCommand@2
   displayName: 'nuget pack'
@@ -45,5 +45,11 @@ steps:
 - task: NuGetCommand@2
   displayName: 'nuget push'
   inputs:
-    command: push
+    command: 'push'
     publishVstsFeed: 'SCV/SCVFeed'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet buid'
+  inputs:
+    command: 'build'
+    projects: '*.sln'
