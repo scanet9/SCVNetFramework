@@ -38,7 +38,7 @@ steps:
   displayName: "dotnet pack"
   inputs:
     command: 'pack'
-    packagesToPack: 'Framework/*.csproj'
+    packagesToPack: 'Framework/**/*.csproj'
 
 - task: NuGetCommand@2
   displayName: 'nuget push'
