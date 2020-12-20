@@ -54,18 +54,38 @@ namespace CosmosApiBase.Controllers
             }
         }
 
+        [HttpPost("Logout")]
+        public async Task<IActionResult> LogoutAsync([FromBody] AuthenticationRequestDto credentials)
+        {
+            var jwtSecret = _configuration.GetSection("AppSettings").GetValue<string>("JwtSecret");
+            var response = await _userService.AuthenticateAsync(credentials, jwtSecret);
+
+            if (String.IsNullOrEmpty(response.JwtToken))
+                return BadRequest(new { message = "Username or password incorrect" });
+
+            return Ok(response);
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllAsync() => Ok(await _userService.GetAllAsync());
-
-        [HttpGet("Actives")]
-        public async Task<IActionResult> GetActiveUsers() => Ok(await _userService.GetActiveUsers());
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(Guid id)
         {
             var user = await _userService.GetByIdAsync(id);
 
-            if (user.Id != Guid.Empty)
+            if (user != null)
+                return Ok(user);
+
+            return NotFound();
+        }
+
+        [HttpGet("Email/{email}")]
+        public async Task<IActionResult> GetByEmailAsync(string email)
+        {
+            var user = await _userService.GetByEmailAsync(email);
+
+            if (user != null)
                 return Ok(user);
 
             return NotFound();

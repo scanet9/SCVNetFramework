@@ -26,14 +26,24 @@ namespace SCVFramework.DataLayer.Cosmos.Infrastructure
             return response.Entity;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(string partitionKey = "")
+        public async Task<IEnumerable<T>> GetAllAsync(int skip = 0, int take = 0, string partitionKey = "")
         {
-            return await _context.Set<T>().WithPartitionKey(partitionKey).ToListAsync();
+            var filter = _context.Set<T>().WithPartitionKey(partitionKey);
+
+            if (take > 0)
+                filter = filter.Skip(skip).Take(take);
+
+            return await filter.ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression, string partitionKey = "")
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression, int skip = 0, int take = 0, string partitionKey = "")
         {
-            return await _context.Set<T>().WithPartitionKey(partitionKey).Where(expression).ToListAsync();
+            var filter = _context.Set<T>().WithPartitionKey(partitionKey).Where(expression);
+
+            if (take > 0)
+                filter = filter.Skip(skip).Take(take);
+
+            return await filter.ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(Guid id, string partitionKey = "")

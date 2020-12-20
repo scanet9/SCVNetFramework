@@ -60,16 +60,15 @@ namespace CosmosApiBase.BusinessLogic.Services
             return result;
         }
 
-        public async Task<IEnumerable<User>> GetActiveUsers()
-        {
-            var result = await _uow.GetRepository<User>().GetAsync(x => x.Active);
-            return result;
-        }
-
         public async Task<User> GetByIdAsync(Guid id)
         {
             var result = await _uow.GetRepository<User>().GetByIdAsync(id);
             return result != null ? result : new User();
+        }
+
+        public async Task<User> GetByEmailAsync(string email)
+        {
+            return (await _uow.GetRepository<User>().GetAllAsync(partitionKey: email)).SingleOrDefault();
         }
 
         public async Task<User> UpdateUserAsync(Guid id, UpdateUserDto updateUserDto)

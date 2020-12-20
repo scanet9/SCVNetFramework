@@ -7,6 +7,5 @@ namespace CosmosApiBase.DataLayer.DataTransferObjects
         public string NewPassword { get; set; }
         public string Name { get; set; }
         public string Surnames { get; set; }
-        public bool Active { get; set; }
     }
 }
