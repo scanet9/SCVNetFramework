@@ -54,18 +54,6 @@ namespace CosmosApiBase.Controllers
             }
         }
 
-        [HttpPost("Logout")]
-        public async Task<IActionResult> LogoutAsync([FromBody] AuthenticationRequestDto credentials)
-        {
-            var jwtSecret = _configuration.GetSection("AppSettings").GetValue<string>("JwtSecret");
-            var response = await _userService.AuthenticateAsync(credentials, jwtSecret);
-
-            if (String.IsNullOrEmpty(response.JwtToken))
-                return BadRequest(new { message = "Username or password incorrect" });
-
-            return Ok(response);
-        }
-
         [HttpGet]
         public async Task<IActionResult> GetAllAsync() => Ok(await _userService.GetAllAsync());
 

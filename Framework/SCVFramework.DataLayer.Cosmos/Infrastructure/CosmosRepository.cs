@@ -26,9 +26,12 @@ namespace SCVFramework.DataLayer.Cosmos.Infrastructure
             return response.Entity;
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync(int skip = 0, int take = 0, string partitionKey = "")
+        public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, object>> orderBy = null, int skip = 0, int take = 0, string partitionKey = "")
         {
             var filter = _context.Set<T>().WithPartitionKey(partitionKey);
+
+            if (orderBy != null)
+                filter = filter.OrderBy(orderBy);
 
             if (take > 0)
                 filter = filter.Skip(skip).Take(take);
@@ -36,9 +39,12 @@ namespace SCVFramework.DataLayer.Cosmos.Infrastructure
             return await filter.ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression, int skip = 0, int take = 0, string partitionKey = "")
+        public async Task<IEnumerable<T>> GetAsync(Expression<Func<T, bool>> expression, Expression<Func<T, object>> orderBy = null, int skip = 0, int take = 0, string partitionKey = "")
         {
             var filter = _context.Set<T>().WithPartitionKey(partitionKey).Where(expression);
+
+            if (orderBy != null)
+                filter = filter.OrderBy(orderBy);
 
             if (take > 0)
                 filter = filter.Skip(skip).Take(take);
