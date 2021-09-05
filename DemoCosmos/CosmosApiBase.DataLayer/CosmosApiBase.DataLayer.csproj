@@ -10,7 +10,7 @@
     <Folder Include="DocumentModels\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Framework\SCVFramework.DataLayer.Cosmos\SCVFramework.DataLayer.Cosmos.csproj">
+    <ProjectReference Include="..\..\Framework\SCVNetFramework.DataLayer.Cosmos\SCVNetFramework.DataLayer.Cosmos.csproj">
       <ReferenceSourceTarget>ProjectReference</ReferenceSourceTarget>
     </ProjectReference>
   </ItemGroup>

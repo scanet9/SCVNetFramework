@@ -4,7 +4,7 @@ https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?bra
 
 Base framework for creating REST APIs in NET 5.
 
-## Structure:
+## Structure
 ### Framework folder
 Contains a DataLayer project for CosmosDB, including:
 - BaseDocument abstract class.

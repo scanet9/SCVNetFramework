@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCVFramework.DataLayer.Cosmos", "Framework\SCVFramework.DataLayer.Cosmos\SCVFramework.DataLayer.Cosmos.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCVNetFramework.DataLayer.Cosmos", "Framework\SCVNetFramework.DataLayer.Cosmos\SCVNetFramework.DataLayer.Cosmos.csproj", "{99BAA9D0-B51E-40E6-BC0B-6987A88042CE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{8EE4ACE6-293C-42F7-ABD6-282D291138B0}"
 EndProject
