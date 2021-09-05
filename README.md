@@ -1,5 +1,6 @@
 # SCVNetFramework
 [![Build Status](https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?branchName=master)](https://dev.azure.com/scanet9/SCV/_build/latest?definitionId=2&branchName=master)
+https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?branchName=master
 
 Base framework for creating REST APIs in NET 5.
 
@@ -10,8 +11,8 @@ Contains a DataLayer project for CosmosDB, including:
 - Repository pattern with CRUD operations.
 - UnitOfWork pattern for habving atomic transactions.
 
-### Demo folder:
-Contains a full REST API using the framework project. Includes:
+### Demo folder
+Contains a full REST API example using the framework project, including:
 - Basic CRUD functionalities for user management
 - JWT token-based authorization.
 - Swagger UI.
