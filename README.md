@@ -1,6 +1,5 @@
 # SCVNetFramework
 [![Build Status](https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?branchName=master)](https://dev.azure.com/scanet9/SCV/_build/latest?definitionId=2&branchName=master)
-https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?branchName=master
 
 Base framework for creating REST APIs in NET 5.
 
