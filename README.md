@@ -1,24 +1,26 @@
 # SCVNetFramework
 [![Build Status](https://dev.azure.com/scanet9/SCV/_apis/build/status/scanet9.SCVNetFramework?branchName=master)](https://dev.azure.com/scanet9/SCV/_build/latest?definitionId=2&branchName=master)
 
-Base framework for creating REST APIs in NET 5.
+Base framework for building REST APIs in NET 5.
 
 ## Structure
 ### Framework folder
-Contains a DataLayer project for CosmosDB, including:
-- BaseDocument abstract class.
-- Repository pattern with CRUD operations.
-- UnitOfWork pattern for habving atomic transactions.
+Contains the DataLayer framework projects, one for Cosmos DB and the other for SQL server. Both projects include:
+- BaseDocument/BaseEntity abstract class.
+- Repository pattern with CRUD operations using Entity Framework.
+- UnitOfWork pattern for having atomic transactions.
 
 ### Demo folder
-Contains a full REST API example using the framework project, including:
+Contains two REST APIs as examples for using the framework project. One API is Cosmos-based and the other is SQL-based. Both APIs include:
 - Basic CRUD functionalities for user management
 - JWT token-based authorization.
 - Swagger UI.
 
 ### azure-pipelines.yml file
-Builds the framework project and publishes it in a private Azure Devops Artifacts feed.
+Builds the framework projects and publish them as nuget packages in a private Azure Devops Artifacts feed.
 
+## Usage
+For being able to install the framework nuget packages, the following private feed needs to be added in Visual Studio nuget sources: https://pkgs.dev.azure.com/sergicanet9/SCV/_packaging/SCVFeed/nuget/v3/index.json
 ## Author
 Sergi Canet Vela
 
