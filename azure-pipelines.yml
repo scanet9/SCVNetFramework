@@ -47,5 +47,4 @@ steps:
   inputs:
     command: 'push'
     publishVstsFeed: 'SCV/SCVFeed'
-
-
+    allowPackageConflicts: true
