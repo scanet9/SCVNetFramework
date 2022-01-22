@@ -1,7 +1,6 @@
-﻿using System;
-namespace CosmosApiBase.DataLayer.DataTransferObjects
+﻿namespace SqlApiBase.DataLayer.DataTransferObjects
 {
-    public class RegisterUserDto
+    public class RegisterUserRequestDto
     {
         public string Email { get; set; }
         public string Password { get; set; }

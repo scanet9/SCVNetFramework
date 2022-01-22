@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Threading.Tasks;
-using CosmosApiBase.BusinessLogic.Services.Interfaces;
-using SCVFramework.DataLayer.Cosmos.Infrastructure.Interfaces;
-using CosmosApiBase.DataLayer.DocumentModels.User;
-using CosmosApiBase.DataLayer.DataTransferObjects;
 using System.Linq;
-using System.Text;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
+using SCVNetFramework.DataLayer.Sql.Infrastructure.Interfaces;
+using SqlApiBase.BusinessLogic.Services.Interfaces;
+using SqlApiBase.DataLayer.DataTransferObjects;
+using SqlApiBase.DataLayer.Entities;
 
-namespace CosmosApiBase.BusinessLogic.Services
+namespace SqlApiBase.BusinessLogic.Services
 {
     public class UserService : IUserService
     {
@@ -30,7 +30,7 @@ namespace CosmosApiBase.BusinessLogic.Services
             if (!(string.IsNullOrEmpty(credentials.Email) || string.IsNullOrEmpty(credentials.Password)))
             {
 
-                var user = (await _uow.GetRepository<User>().GetAllAsync(partitionKey: credentials.Email)).SingleOrDefault();
+                var user = (await _uow.GetRepository<User>().GetAsync(x => x.Email == credentials.Email)).SingleOrDefault();
 
                 if (user != null && BCrypt.Net.BCrypt.Verify(credentials.Password, user.PasswordHash))
                     return new AuthenticationResponseDto(user, GenerateJwtToken(user, jwtSecret));
@@ -43,7 +43,7 @@ namespace CosmosApiBase.BusinessLogic.Services
             if (string.IsNullOrEmpty(registerUserDto.Email) || string.IsNullOrEmpty(registerUserDto.Password))
                 throw new ArgumentException("Neither email nor password can be empty");
 
-            if ((await _uow.GetRepository<User>().GetAllAsync(partitionKey: registerUserDto.Email)).Any())
+            if ((await _uow.GetRepository<User>().GetAsync(x => x.Email == registerUserDto.Email)).Any())
                 throw new ArgumentException("This email is already registered");
 
             User user = _mapper.Map<User>(registerUserDto);
@@ -68,7 +68,7 @@ namespace CosmosApiBase.BusinessLogic.Services
 
         public async Task<User> GetByEmailAsync(string email)
         {
-            return (await _uow.GetRepository<User>().GetAllAsync(partitionKey: email)).SingleOrDefault();
+            return (await _uow.GetRepository<User>().GetAsync(x => x.Email == email)).SingleOrDefault();
         }
 
         public async Task<User> UpdateUserAsync(Guid id, UpdateUserRequestDto updateUserDto)
@@ -85,7 +85,7 @@ namespace CosmosApiBase.BusinessLogic.Services
                 {
                     user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(updateUserDto.NewPassword);
                 }
-                else throw new ArgumentException("Old password incorrect");               
+                else throw new ArgumentException("Old password incorrect");
             }
 
             var entityEntry = _uow.GetRepository<User>().Update(user);

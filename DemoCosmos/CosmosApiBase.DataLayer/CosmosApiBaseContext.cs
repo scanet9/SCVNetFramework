@@ -1,5 +1,4 @@
-﻿using System;
-using CosmosApiBase.DataLayer.DocumentModels.User;
+﻿using CosmosApiBase.DataLayer.DocumentModels.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace CosmosApiBase.DataLayer

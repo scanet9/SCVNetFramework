@@ -6,8 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Configuration\" />
+    <None Remove="AutoMapper" />
+    <None Remove="Services\" />
+    <None Remove="Services\Interfaces\" />
+    <None Remove="BCrypt.Net-Next" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Configuration\" />
     <Folder Include="Services\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.0" />
@@ -15,6 +24,6 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.15.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CosmosApiBase.DataLayer\CosmosApiBase.DataLayer.csproj" />
+    <ProjectReference Include="..\SqlApiBase.DataLayer\SqlApiBase.DataLayer.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace CosmosApiBase.DataLayer.DataTransferObjects
+﻿namespace SqlApiBase.DataLayer.DataTransferObjects
 {
     public class AuthenticationRequestDto
     {

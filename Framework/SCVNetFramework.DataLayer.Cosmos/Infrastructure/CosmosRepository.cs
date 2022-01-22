@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
 using System.Threading.Tasks;
 using SCVFramework.DataLayer.Cosmos.Infrastructure.Interfaces;
-using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 
 namespace SCVFramework.DataLayer.Cosmos.Infrastructure

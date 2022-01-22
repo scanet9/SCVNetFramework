@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using CosmosApiBase.DataLayer.DataTransferObjects;
-using CosmosApiBase.DataLayer.DocumentModels.User;
+using SqlApiBase.DataLayer.DataTransferObjects;
+using SqlApiBase.DataLayer.Entities;
 
-namespace CosmosApiBase.BusinessLogic.Configuration
+namespace SqlApiBase.BusinessLogic.Configuration
 {
     public class MappingProfile : Profile
     {

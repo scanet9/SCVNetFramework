@@ -1,9 +1,10 @@
-﻿using System.Text.Json.Serialization;
-using SCVFramework.DataLayer.Cosmos.Infrastructure;
+﻿using System;
+using System.Text.Json.Serialization;
+using SCVNetFramework.DataLayer.Sql.Infrastructure;
 
-namespace CosmosApiBase.DataLayer.DocumentModels.User
+namespace SqlApiBase.DataLayer.Entities
 {
-    public class User : BaseDocument
+    public class User : BaseEntity
     {
         public string Email { get; set; }
         [JsonIgnore]

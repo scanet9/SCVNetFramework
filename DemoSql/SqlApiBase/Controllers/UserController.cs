@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CosmosApiBase.BusinessLogic.Services.Interfaces;
-using CosmosApiBase.DataLayer.DataTransferObjects;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using SqlApiBase.BusinessLogic.Services.Interfaces;
+using SqlApiBase.DataLayer.DataTransferObjects;
 
-namespace CosmosApiBase.Controllers
+namespace SqlApiBase.Controllers
 {
     [Authorize]
     [ApiController]

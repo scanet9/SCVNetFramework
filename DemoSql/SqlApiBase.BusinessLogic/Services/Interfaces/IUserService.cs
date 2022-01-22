@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using CosmosApiBase.DataLayer.DataTransferObjects;
-using CosmosApiBase.DataLayer.DocumentModels.User;
+using SqlApiBase.DataLayer.DataTransferObjects;
+using SqlApiBase.DataLayer.Entities;
 
-namespace CosmosApiBase.BusinessLogic.Services.Interfaces
+namespace SqlApiBase.BusinessLogic.Services.Interfaces
 {
     public interface IUserService
     {

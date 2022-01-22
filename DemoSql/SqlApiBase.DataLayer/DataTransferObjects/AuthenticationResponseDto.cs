@@ -1,6 +1,6 @@
-﻿using CosmosApiBase.DataLayer.DocumentModels.User;
+﻿using SqlApiBase.DataLayer.Entities;
 
-namespace CosmosApiBase.DataLayer.DataTransferObjects
+namespace SqlApiBase.DataLayer.DataTransferObjects
 {
     public class AuthenticationResponseDto
     {

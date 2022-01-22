@@ -1,7 +1,6 @@
-﻿using System;
-namespace CosmosApiBase.DataLayer.DataTransferObjects
+﻿namespace SqlApiBase.DataLayer.DataTransferObjects
 {
-    public class UpdateUserDto
+    public class UpdateUserRequestDto
     {
         public string OldPassword { get; set; }
         public string NewPassword { get; set; }
